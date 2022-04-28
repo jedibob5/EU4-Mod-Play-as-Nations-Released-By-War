@@ -8,7 +8,27 @@ country_event = {
 	
 	is_triggered_only = yes
 	
+	limit = {
+		any_country = {
+			ROOT = {
+				has_opinion_modifier = {
+					who = PREV
+					modifier = released_in_peace
+					value = 100
+				}
+			}
+		}
+	}
+	
 	option = {
 		name = "play_as_released.1.a"
+	}
+	
+	option = {
+		name = "play_as_released.1.b"
+	}
+	
+	option = {
+		name = "play_as_released.1.c"
 	}
 }
