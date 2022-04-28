@@ -1,0 +1,14 @@
+namespace = play_as_released
+
+country_event = {
+	id = play_as_released.1
+	title = "play_as_released.1.t"
+	desc = "play_as_released.1.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "play_as_released.1.a"
+	}
+}
