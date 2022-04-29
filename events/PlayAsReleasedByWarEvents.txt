@@ -16,6 +16,7 @@ country_event = {
 					modifier = released_in_peace
 					value = 100
 				}
+				NOT = { has_country_flag = declined_play_as_release }
 			}
 			NOT = { has_country_flag = play_as_released_dont_ask_again }
 		}
@@ -43,6 +44,15 @@ country_event = {
 	
 	option = {
 		name = "play_as_released.1.b"
+		custom_tooltip = "play_as_released.1.b.tt"
+		# If multiple tags are released in the same treaty, make sure each one gets an event.
+		hidden_effect = {
+			released_in_peace_switch_target = {
+				set_country_flag = declined_play_as_release
+				# If no eligible targets are left, the trigger condition should prevent it from firing again.
+				ROOT = { country_event = { id = play_as_released.1 } }
+			}
+		}
 	}
 	
 	option = {

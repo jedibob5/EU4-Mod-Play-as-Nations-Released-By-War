@@ -1,7 +1,7 @@
 # country
 # root = winning country, from = loser country
 on_war_won = {
-	# all vanilla on_actions effects need to be copied over. 
+	# all vanilla on_actions effects from a particular trigger need to be copied over. 
 	FROM = { country_event = { id = flavor_cri.6 } }
 	ROOT = { country_event = { id = tributary_events.32 } }
 	
