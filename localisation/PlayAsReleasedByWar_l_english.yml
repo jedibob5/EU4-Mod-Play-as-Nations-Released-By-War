@@ -1,4 +1,6 @@
 ﻿l_english:
  play_as_released.1.t:0 "Testing event title"
- play_as_released.1.d:0 "Testing event description"
- play_as_released.1.a:0 "Confirm"
+ play_as_released.1.d:0 "Testing event description. Target country: [released_in_peace_switch_target.GetName]"
+ play_as_released.1.a:0 "Switch"
+ play_as_released.1.b:0 "Don't Switch"
+ play_as_released.1.c:0 "Don't Ask Again!"

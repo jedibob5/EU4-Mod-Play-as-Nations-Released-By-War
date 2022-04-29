@@ -8,20 +8,37 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	limit = {
-		any_country = {
-			ROOT = {
+	trigger = {
+		ROOT = {
+			any_known_country = {
 				has_opinion_modifier = {
-					who = PREV
+					who = ROOT
 					modifier = released_in_peace
 					value = 100
 				}
+			}
+			NOT = { has_country_flag = play_as_released_dont_ask_again }
+		}
+	}
+	
+	immediate = {
+		ROOT = {
+			random_known_country = {
+				limit = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = released_in_peace
+						value = 100
+					}
+				}
+				save_event_target_as = released_in_peace_switch_target
 			}
 		}
 	}
 	
 	option = {
 		name = "play_as_released.1.a"
+		switch_tag = released_in_peace_switch_target
 	}
 	
 	option = {
@@ -30,5 +47,7 @@ country_event = {
 	
 	option = {
 		name = "play_as_released.1.c"
+		custom_tooltip = "play_as_released.1.c.tt"
+		hidden_effect = { ROOT = { set_country_flag = play_as_released_dont_ask_again } }
 	}
 }
