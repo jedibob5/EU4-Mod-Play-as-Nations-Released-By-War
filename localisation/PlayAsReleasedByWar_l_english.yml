@@ -5,6 +5,4 @@
  play_as_released.1.b:0 "Don't Switch"
  play_as_released.1.b.tt:0 "Both you and the released nation will continue as normal."
  play_as_released.1.c:0 "Don't Ask Again!"
- play_as_released.1.c.tt:0 "You will no longer be prompted to switch countries after using Release Nation in a peace treaty. You may re-enable this via a decision."
- reenable_play_as_released_title:0 "Re-enable Play as Released by War"
- reenable_play_as_released_desc:0 "The prompt to switch countries after using Release Nation in a peace treaty will be re-enabled."
+ play_as_released.1.c.tt:0 "You will no longer be prompted to switch countries after using Release Nation in a peace treaty."

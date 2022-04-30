@@ -63,17 +63,6 @@ country_event = {
 		custom_tooltip = "play_as_released.1.c.tt"
 		hidden_effect = {
 			set_country_flag = play_as_released_dont_ask_again
-			# add declined flag to all possible countries to cover edge case of selecting "don't ask again," repealing it, and releasing another nation all in the same year
-			all_known_country = {
-				limit = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = released_in_peace
-						value = 99
-					}
-					NOT = { has_country_flag = { declined_play_as_release }
-				}
-				set_country_flag = declined_play_as_release
 			}
 		}
 	}
