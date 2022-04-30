@@ -5,43 +5,43 @@ country_event = {
 	title = "play_as_released.1.t"
 	desc = "play_as_released.1.d"
 	picture = GOOD_WITH_MONARCH_eventPicture
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
-		ROOT = {
-			any_known_country = {
-				has_opinion_modifier = {
-					who = ROOT
-					modifier = released_in_peace
-					value = 100
-				}
-				NOT = { has_country_flag = declined_play_as_release }
+		any_known_country = {
+			has_opinion_modifier = {
+				who = ROOT
+				modifier = released_in_peace
+				# If multiple nations are released in the same peace, this event will fire on consecutive days. value = 99 accounts for the year ticking over between occurrences.
+				value = 99
 			}
-			NOT = { has_country_flag = play_as_released_dont_ask_again }
+			NOT = { has_country_flag = declined_play_as_release }
 		}
+		NOT = { has_country_flag = play_as_released_dont_ask_again }
 	}
-	
+
 	immediate = {
-		ROOT = {
+		hidden_effect = {
 			random_known_country = {
 				limit = {
 					has_opinion_modifier = {
 						who = ROOT
 						modifier = released_in_peace
-						value = 100
+						value = 99
 					}
+					NOT = { has_country_flag = declined_play_as_release }
 				}
 				save_event_target_as = released_in_peace_switch_target
 			}
 		}
 	}
-	
+
 	option = {
 		name = "play_as_released.1.a"
 		switch_tag = event_target:released_in_peace_switch_target
 	}
-	
+
 	option = {
 		name = "play_as_released.1.b"
 		custom_tooltip = "play_as_released.1.b.tt"
@@ -51,13 +51,30 @@ country_event = {
 				set_country_flag = declined_play_as_release
 			}
 			# If no eligible targets are left, the trigger condition should prevent it from firing again.
-			country_event = { id = play_as_released.1 }
+			country_event = {
+				id = play_as_released.1
+				days = 1
+			}
 		}
 	}
-	
+
 	option = {
 		name = "play_as_released.1.c"
 		custom_tooltip = "play_as_released.1.c.tt"
-		hidden_effect = { ROOT = { set_country_flag = play_as_released_dont_ask_again } }
+		hidden_effect = {
+			set_country_flag = play_as_released_dont_ask_again
+			# add declined flag to all possible countries to cover edge case of selecting "don't ask again," repealing it, and releasing another nation all in the same year
+			all_known_country = {
+				limit = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = released_in_peace
+						value = 99
+					}
+					NOT = { has_country_flag = { declined_play_as_release }
+				}
+				set_country_flag = declined_play_as_release
+			}
+		}
 	}
 }

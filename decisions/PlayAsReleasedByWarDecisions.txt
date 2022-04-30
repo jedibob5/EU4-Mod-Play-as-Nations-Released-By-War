@@ -5,10 +5,6 @@ country_decisions = {
 			NOT = { ai = yes }
 			has_country_flag = play_as_released_dont_ask_again
 		}
-		allow = {
-			NOT = { ai = yes }
-			has_country_flag = play_as_released_dont_ask_again
-		}
 		effect = {
 			clr_country_flag = play_as_released_dont_ask_again
 		}
